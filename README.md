@@ -49,7 +49,7 @@ Based on results of passing autotests, an Allure report is generated. Contents o
 * Browser console logs
 * Test execution video
 
-## :white_check_mark: Automated tests
+## :heavy_check_mark: Automated tests
 
 ### *UI:*
 - Parameterized greeting tests
@@ -103,7 +103,7 @@ To run UI autotests on the local machine:
 ```bash
 gradle clean ui -DisRemote=false
 ```
-To run UI autotests with teg <code>smoke</code> (or <code>regress</code>) remotely in <code>Selenoid</code>:
+To run UI autotests with tag <code>smoke</code> (or <code>regress</code>) remotely in <code>Selenoid</code>:
 ```bash
 gradle clean smoke
 gradle clean regress
@@ -112,7 +112,7 @@ To run API autotests on the local machine:
 ```bash
 gradle clean api -Dtoken=''
 ```
-To run API autotests with teg <code>profile</code> (or <code>settings</code>/<code>positive</code>/<code>negative</code>) on the local machine:
+To run API autotests with tag <code>profile</code> (or <code>settings</code>/<code>positive</code>/<code>negative</code>) on the local machine:
 ```bash
 gradle clean profile -Dtoken=''
 gradle clean settings -Dtoken=''
