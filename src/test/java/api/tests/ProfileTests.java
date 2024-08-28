@@ -125,7 +125,6 @@ public class ProfileTests extends TestBase {
     @Tag("positive")
     @DisplayName("Subscribe to user")
     void subscribeToUserTest() {
-        profileSteps.deleteSubscription();
         SubscribeUserRequestModel request = new SubscribeUserRequestModel();
         request.setComponent("profile_header_button");
         request.setFollowReason("search");
@@ -144,6 +143,7 @@ public class ProfileTests extends TestBase {
         step("Check response is successful", () ->
                 assertThat(response.getSuccessful()).isEqualTo(true)
         );
+        profileSteps.deleteSubscription();
     }
 
     @Test

@@ -86,6 +86,8 @@ Based on results of passing autotests, an Allure report is generated. Contents o
 ```BROWSER_VERSION``` - browser version for running UI autotests (default - ```126```)  
 ```BROWSE_SIZE``` - browser window size for running UI autotests (default - ```1920x1080```)
 ```TOKEN``` - the Bearer token to get access to Duolingo API
+```REMOTE_URL``` - Selenoid URL
+```AUTH``` - login and password to get access to Selenoid
 
 ### *Launch commands*
 
@@ -94,6 +96,7 @@ Based on results of passing autotests, an Allure report is generated. Contents o
 To run all autotests (need to set Bearer token to get access to Duolingo API):
 ```bash
 gradle clean test -Dtoken=''         
+gradle clean duolingo -Dtoken='' 
 ```
 To run UI autotests remotely in <code>Selenoid</code> by default:
 ```bash
@@ -128,6 +131,7 @@ ${TASK}
 -"DbrowserVersion=${BROWSER_VERSION}"
 -"DbrowserSize=${BROWSER_SIZE}"
 -"Dtoken=${TOKEN}"
+-"DremoteUrl=https://${AUTH}@${REMOTE_URL}/wd/hub"
 ```
 
 To start the build:
