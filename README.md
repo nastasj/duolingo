@@ -81,13 +81,13 @@ Based on results of passing autotests, an Allure report is generated. Contents o
 [<img width="100%" title="Jenkins" src="media/img/Jenkins.PNG"/>]()
 
 ### *Jenkins build options:*
-```TASK``` - task name (possible options - ```ui```, ```smoke```, ```regress``` for UI autotests; ```api```, ```profile```, ```settings```, ```positive```, ```negative``` for API autotests)
-```BROWSER``` - browser for running UI autotests (default - ```chrome```)  
-```BROWSER_VERSION``` - browser version for running UI autotests (default - ```126```)  
-```BROWSE_SIZE``` - browser window size for running UI autotests (default - ```1920x1080```)
-```TOKEN``` - the Bearer token to get access to Duolingo API
-```REMOTE_URL``` - Selenoid URL
-```AUTH``` - login and password to get access to Selenoid
+- ```TASK``` - task name (possible options - ```ui```, ```smoke```, ```regress``` for UI autotests; ```api```, ```profile```, ```settings```, ```positive```, ```negative``` for API autotests)
+- ```BROWSER``` - browser for running UI autotests (default - ```chrome```)  
+- ```BROWSER_VERSION``` - browser version for running UI autotests (default - ```126```)  
+- ```BROWSE_SIZE``` - browser window size for running UI autotests (default - ```1920x1080```)
+- ```TOKEN``` - the Bearer token to get access to Duolingo API
+- ```REMOTE_URL``` - Selenoid URL
+- ```AUTH``` - login and password to get access to Selenoid
 
 ### *Launch commands*
 
