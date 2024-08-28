@@ -13,7 +13,7 @@ public class DuolingoCareersPage {
 
     private final SelenideElement
             careersTitle = $(byTagAndText("h1", "work at duolingo")),
-            typeSelect =$(byTagAndText("option", "All types")),
+            typeSelect = $(byTagAndText("option", "All types")),
             departmentSelect = $(byTagAndText("option", "All departments")),
             locationSelect = $(byTagAndText("option", "All locations"));
 

@@ -3,13 +3,13 @@ package ui.tests;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
-import ui.config.ProjectConfiguration;
-import ui.helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import ui.config.ProjectConfiguration;
+import ui.helpers.Attach;
 
 import java.util.Map;
 
@@ -35,10 +35,18 @@ public class TestBase {
 
     @AfterEach
     void afterEach() {
+        ProjectConfiguration projectConfiguration = new ProjectConfiguration();
+        projectConfiguration.webDriverConfig();
+
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
+        if (!projectConfiguration.webDriverConfig.browser().equals("firefox")) {
+            Attach.browserConsoleLogs();
+        }
         Attach.browserConsoleLogs();
-        Attach.addVideo();
+        if (projectConfiguration.webDriverConfig.isRemote()) {
+            Attach.addVideo();
+        }
         Selenide.closeWebDriver();
     }
 }

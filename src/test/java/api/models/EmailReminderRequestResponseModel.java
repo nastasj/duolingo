@@ -6,19 +6,19 @@ import lombok.Data;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class EmailReminderRequestResponseModel {
-    String userID, username;
-    PracticeReminderSettings practiceReminderSettings;
+    private String userID, username;
+    private PracticeReminderSettings practiceReminderSettings;
 
     @Data
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class PracticeReminderSettings {
-        En en;
+        private En en;
 
         @Data
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class En {
-            int timeInMinutes;
-            Boolean useSmartReminderTime, emailEnabled, pushEnabled;
+            private int timeInMinutes;
+            private Boolean useSmartReminderTime, emailEnabled, pushEnabled;
         }
     }
 }

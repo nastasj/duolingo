@@ -18,7 +18,7 @@ public class DuolingoMainPage {
 
     @Step("Open main page")
     public DuolingoMainPage openMainPage() {
-        open("https://duolingo.com/");
+        open("");
         return this;
     }
 

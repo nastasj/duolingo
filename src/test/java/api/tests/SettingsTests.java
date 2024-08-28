@@ -22,8 +22,9 @@ import java.io.IOException;
 import static api.specs.DuolingoSpecs.*;
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
+import static org.assertj.core.api.Assertions.assertThat;
 
-
+@Tag("duolingo")
 @Tag("api")
 @Tag("settings")
 @Owner("Antoshkina Anastasia")
@@ -60,6 +61,7 @@ public class SettingsTests extends TestBase {
                                 .spec(statusCode200Spec)
                                 .extract().as(DarkModeResponseModel.class)
                 );
+        assertThat(response.getEntries()).hasSizeGreaterThan(0);
     }
 
     @Test
@@ -101,13 +103,23 @@ public class SettingsTests extends TestBase {
                         given(requestSpec)
                                 .header("Authorization", authConfig.token())
                                 .body(request)
+                                .queryParam("fields", "practiceReminderSettings")
                                 .when()
-                                .patch("2017-06-30/users/" + apiConfig.testUserId()
-                                       + "?fields=practiceReminderSettings")
+                                .patch("2017-06-30/users/" + apiConfig.testUserId())
                                 .then()
                                 .spec(statusCode200Spec)
                                 .extract().as(EmailReminderRequestResponseModel.class)
                 );
+        assertThat(response.getPracticeReminderSettings().getEn().getEmailEnabled())
+                .isEqualTo(request.getPracticeReminderSettings().getEn().getEmailEnabled());
+        assertThat(response.getPracticeReminderSettings().getEn().getPushEnabled())
+                .isEqualTo(request.getPracticeReminderSettings().getEn().getPushEnabled());
+        assertThat(response.getPracticeReminderSettings().getEn().getUseSmartReminderTime())
+                .isEqualTo(request.getPracticeReminderSettings().getEn().getUseSmartReminderTime());
+        assertThat(response.getPracticeReminderSettings().getEn().getUseSmartReminderTime())
+                .isEqualTo(request.getPracticeReminderSettings().getEn().getUseSmartReminderTime());
+        assertThat(response.getPracticeReminderSettings().getEn().getTimeInMinutes())
+                .isEqualTo(request.getPracticeReminderSettings().getEn().getTimeInMinutes());
     }
 
     @Test
@@ -118,9 +130,9 @@ public class SettingsTests extends TestBase {
                 step("Send PATCH request to set email reminder with no body", () ->
                         given(requestSpec)
                                 .header("Authorization", authConfig.token())
+                                .queryParam("fields", "practiceReminderSettings")
                                 .when()
-                                .patch("2017-06-30/users/" + apiConfig.testUserId() +
-                                        "?fields=practiceReminderSettings")
+                                .patch("2017-06-30/users/" + apiConfig.testUserId())
                                 .then()
                                 .spec(statusCode400Spec)
                 );

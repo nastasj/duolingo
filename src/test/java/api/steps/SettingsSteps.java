@@ -22,16 +22,16 @@ public class SettingsSteps {
                 step("Send GET request to get dark mode version", () ->
                         given()
                                 .header("Authorization", authConfig.token())
+                                .queryParam("_", "1723407033500")
                                 .contentType("application/json")
                                 .when()
-                                .get("rocks/1/containers/learning_app_ui_preferences/users/" + apiConfig.testUserId() +
-                                        "?_=1723407033500")
+                                .get("rocks/1/containers/learning_app_ui_preferences/users/" + apiConfig.testUserId())
                                 .then()
                                 .spec(statusCode200Spec)
                                 .extract().as(DarkModeResponseModel.class)
                 );
         String s = (Arrays.toString(response.getEntries()));
         String versionNumber = s.split("=")[3].split("]")[0];
-        return versionNumber.substring(0, versionNumber.length()-1);
+        return versionNumber.substring(0, versionNumber.length() - 1);
     }
 }

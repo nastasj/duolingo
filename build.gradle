@@ -72,6 +72,12 @@ tasks.withType(Test) {
     }
 }
 
+task duolingo(type: Test) {
+    useJUnitPlatform {
+        includeTags("duolingo")
+    }
+}
+
 task api(type: Test) {
     useJUnitPlatform {
         includeTags("api")

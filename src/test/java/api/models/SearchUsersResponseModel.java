@@ -6,14 +6,14 @@ import lombok.Data;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SearchUsersResponseModel {
-    int totalResults;
-    Users[] users;
+    private int totalResults;
+    private Users[] users;
 
     @Data
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Users {
-        String contextString, learningLanguage, name, picture, username, subscriptionItemType;
-        int id, totalXP;
-        Boolean hasSubscription, isVerified;
+        private String contextString, learningLanguage, name, picture, username, subscriptionItemType;
+        private int id, totalXP;
+        private Boolean hasSubscription, isVerified;
     }
 }

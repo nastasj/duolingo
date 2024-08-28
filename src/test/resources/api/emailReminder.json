@@ -1,7 +1,7 @@
 {
   "practiceReminderSettings": {
     "en": {
-      "timeInMinutes": 720,
+      "timeInMinutes": 1020,
       "useSmartReminderTime": true,
       "emailEnabled": true,
       "pushEnabled": true

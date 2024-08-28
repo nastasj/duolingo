@@ -5,7 +5,7 @@ import org.aeonbits.owner.ConfigFactory;
 
 public class ProjectConfiguration {
 
-    private static final WebDriverConfig webDriverConfig =
+    public final WebDriverConfig webDriverConfig =
             ConfigFactory.create(WebDriverConfig.class, System.getProperties());
 
     public void webDriverConfig() {

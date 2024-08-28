@@ -17,7 +17,7 @@ public class DuolingoContactPage {
 
     @Step("Open contact page")
     public DuolingoContactPage openContactPage() {
-        open("https://www.duolingo.com/contact");
+        open("/contact");
         return this;
     }
 

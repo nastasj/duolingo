@@ -6,13 +6,16 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ui.pages.DuolingoMainPage;
 import ui.pages.DuolingoRegisterPage;
+import ui.pages.DuolingoWelcomePage;
 
+@Tag("duolingo")
 @Tag("ui")
 @Owner("Anastasia Antoshkina")
-public class DuolingoRegisterPageTests extends TestBase {
+public class DuolingoRegisterWelcomePageTests extends TestBase {
 
     DuolingoMainPage duolingoMainPage = new DuolingoMainPage();
     DuolingoRegisterPage duolingoRegisterPage = new DuolingoRegisterPage();
+    DuolingoWelcomePage duolingoWelcomePage = new DuolingoWelcomePage();
 
     @Test
     @Tag("smoke")
@@ -33,7 +36,8 @@ public class DuolingoRegisterPageTests extends TestBase {
     public void checkRegisterFeatureTest() {
         duolingoRegisterPage
                 .openRegisterPage()
-                .selectLanguage()
+                .selectLanguage();
+        duolingoWelcomePage
                 .selectSourceOfKnowledge()
                 .selectPurposeOfLearning()
                 .selectLanguageLevel()

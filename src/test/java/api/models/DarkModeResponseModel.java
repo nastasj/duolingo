@@ -6,12 +6,12 @@ import lombok.Data;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class DarkModeResponseModel {
-    Entries[] entries;
+    private Entries[] entries;
 
     @Data
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Entries {
-        String key, value;
-        int version;
+        private String key, value;
+        private int version;
     }
 }

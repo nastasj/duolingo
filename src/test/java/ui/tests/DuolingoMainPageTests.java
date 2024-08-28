@@ -8,9 +8,10 @@ import ui.pages.DuolingoMainPage;
 
 import static com.codeborne.selenide.Selenide.open;
 
+@Tag("duolingo")
 @Tag("ui")
 @Owner("Anastasia Antoshkina")
-public class DoulingoMainPageTests extends TestBase {
+public class DuolingoMainPageTests extends TestBase {
 
     DuolingoMainPage duolingoPage = new DuolingoMainPage();
 
@@ -26,12 +27,6 @@ public class DoulingoMainPageTests extends TestBase {
         open(url);
         duolingoPage.checkGreeting(greeting);
     }
-
-
-
-
-
-
 
 
 }

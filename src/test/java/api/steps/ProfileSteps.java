@@ -16,21 +16,29 @@ import static org.hamcrest.Matchers.is;
 
 public class ProfileSteps {
 
-    @Step("Delete subscription if user has it")
-    public void deleteSubscription() {
-        AuthConfig authConfig = ConfigFactory.create(AuthConfig.class, System.getProperties());
-        ApiConfig apiConfig = ConfigFactory.create(ApiConfig.class, System.getProperties());
+    AuthConfig authConfig = ConfigFactory.create(AuthConfig.class, System.getProperties());
+    ApiConfig apiConfig = ConfigFactory.create(ApiConfig.class, System.getProperties());
+
+    public UserProfileResponseModel getUserProfile() {
         UserProfileResponseModel response =
                 step("Send GET request to view user profile", () ->
                         given(requestSpec)
                                 .header("Authorization", authConfig.token())
+                                .queryParam("pageSize", 5)
+                                .queryParam("_", "1723554223005")
                                 .when()
-                                .get("/2017-06-30/friends/users/"
-                                        + apiConfig.otherTestUserId() + "/profile?pageSize=5&_=1723554223005")
+                                .get("2017-06-30/friends/users/"
+                                        + apiConfig.otherTestUserId() + "/profile")
                                 .then()
                                 .spec(statusCode200Spec)
                                 .extract().as(UserProfileResponseModel.class)
                 );
+        return response;
+    }
+
+    @Step("Delete subscription if user has it")
+    public void deleteSubscription() {
+        UserProfileResponseModel response = getUserProfile();
         if (response.getFollowers().getTotalUsers() > 0) {
             String s = (Arrays.toString(response.getFollowers().getUsers()));
             String userId = s.split("=")[6].split(",")[0];
@@ -39,7 +47,7 @@ public class ProfileSteps {
                         given(requestSpec)
                                 .header("Authorization", authConfig.token())
                                 .when()
-                                .delete("/2017-06-30/friends/users/"
+                                .delete("2017-06-30/friends/users/"
                                         + apiConfig.testUserId() + "/follow/" + apiConfig.otherTestUserId())
                                 .then()
                                 .spec(statusCode200Spec)

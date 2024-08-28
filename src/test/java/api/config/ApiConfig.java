@@ -2,6 +2,8 @@ package api.config;
 
 import org.aeonbits.owner.Config;
 
+@Config.Sources({
+})
 public interface ApiConfig extends Config {
 
     @DefaultValue("https://www.duolingo.com/")

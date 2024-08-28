@@ -8,26 +8,26 @@ import lombok.Data;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UserProfileResponseModel {
-    Boolean canFollow, isFollowedBy, isFollowing, isVerified;
-    Followers followers;
-    Following following;
-    FriendsInCommon friendsInCommon;
+    private Boolean canFollow, isFollowedBy, isFollowing, isVerified;
+    private Followers followers;
+    private Following following;
+    private FriendsInCommon friendsInCommon;
 
     @Data
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Followers {
-        String cursor;
-        int totalUsers;
-        Users[] users;
+        private String cursor;
+        private int totalUsers;
+        private Users[] users;
 
         @Data
         @JsonInclude(JsonInclude.Include.NON_NULL)
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class Users {
-            String displayName, picture, subscriptionItemType, username;
-            int totalXp, userId;
-            Boolean canFollow, hasSubscription, isCurrentlyActive, isFollowedBy, isFollowing, isVerified;
+            private String displayName, picture, subscriptionItemType, username;
+            private int totalXp, userId;
+            private Boolean canFollow, hasSubscription, isCurrentlyActive, isFollowedBy, isFollowing, isVerified;
         }
     }
 
@@ -35,17 +35,17 @@ public class UserProfileResponseModel {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Following {
-        String cursor;
-        int totalUsers;
-        Users[] users;
+        private String cursor;
+        private int totalUsers;
+        private Users[] users;
 
         @Data
         @JsonInclude(JsonInclude.Include.NON_NULL)
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class Users {
-            String displayName, picture, subscriptionItemType, username;
-            int totalXp, userId;
-            Boolean canFollow, hasSubscription, isCurrentlyActive, isFollowedBy, isFollowing, isVerified;
+            private String displayName, picture, subscriptionItemType, username;
+            private int totalXp, userId;
+            private Boolean canFollow, hasSubscription, isCurrentlyActive, isFollowedBy, isFollowing, isVerified;
         }
     }
 
@@ -53,17 +53,17 @@ public class UserProfileResponseModel {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class FriendsInCommon {
-        String cursor;
-        int totalUsers;
-        Users[] users;
+        private String cursor;
+        private int totalUsers;
+        private Users[] users;
 
         @Data
         @JsonInclude(JsonInclude.Include.NON_NULL)
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class Users {
-            String displayName, picture, subscriptionItemType, username;
-            int totalXp, userId;
-            Boolean canFollow, hasSubscription, isCurrentlyActive, isFollowedBy, isFollowing, isVerified;
+            private String displayName, picture, subscriptionItemType, username;
+            private int totalXp, userId;
+            private Boolean canFollow, hasSubscription, isCurrentlyActive, isFollowedBy, isFollowing, isVerified;
         }
     }
 }

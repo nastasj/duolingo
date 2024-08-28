@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import ui.pages.DuolingoMainPage;
 import ui.pages.DuolingoStorePage;
 
+@Tag("duolingo")
 @Tag("ui")
 @Owner("Anastasia Antoshkina")
 public class DuolingoStorePageTests extends TestBase {

@@ -6,5 +6,5 @@ import lombok.Data;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SubscribeUserResponseModel {
-    Boolean successful;
+    private Boolean successful;
 }
