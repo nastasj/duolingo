@@ -61,7 +61,9 @@ public class SettingsTests extends TestBase {
                                 .spec(statusCode200Spec)
                                 .extract().as(DarkModeResponseModel.class)
                 );
-        assertThat(response.getEntries()).hasSizeGreaterThan(0);
+        step("Check response", () ->
+                assertThat(response.getEntries()).hasSizeGreaterThan(0)
+        );
     }
 
     @Test
@@ -110,16 +112,18 @@ public class SettingsTests extends TestBase {
                                 .spec(statusCode200Spec)
                                 .extract().as(EmailReminderRequestResponseModel.class)
                 );
-        assertThat(response.getPracticeReminderSettings().getEn().getEmailEnabled())
-                .isEqualTo(request.getPracticeReminderSettings().getEn().getEmailEnabled());
-        assertThat(response.getPracticeReminderSettings().getEn().getPushEnabled())
-                .isEqualTo(request.getPracticeReminderSettings().getEn().getPushEnabled());
-        assertThat(response.getPracticeReminderSettings().getEn().getUseSmartReminderTime())
-                .isEqualTo(request.getPracticeReminderSettings().getEn().getUseSmartReminderTime());
-        assertThat(response.getPracticeReminderSettings().getEn().getUseSmartReminderTime())
-                .isEqualTo(request.getPracticeReminderSettings().getEn().getUseSmartReminderTime());
-        assertThat(response.getPracticeReminderSettings().getEn().getTimeInMinutes())
-                .isEqualTo(request.getPracticeReminderSettings().getEn().getTimeInMinutes());
+        step("Check response", () -> {
+            assertThat(response.getPracticeReminderSettings().getEn().getEmailEnabled())
+                    .isEqualTo(request.getPracticeReminderSettings().getEn().getEmailEnabled());
+            assertThat(response.getPracticeReminderSettings().getEn().getPushEnabled())
+                    .isEqualTo(request.getPracticeReminderSettings().getEn().getPushEnabled());
+            assertThat(response.getPracticeReminderSettings().getEn().getUseSmartReminderTime())
+                    .isEqualTo(request.getPracticeReminderSettings().getEn().getUseSmartReminderTime());
+            assertThat(response.getPracticeReminderSettings().getEn().getUseSmartReminderTime())
+                    .isEqualTo(request.getPracticeReminderSettings().getEn().getUseSmartReminderTime());
+            assertThat(response.getPracticeReminderSettings().getEn().getTimeInMinutes())
+                    .isEqualTo(request.getPracticeReminderSettings().getEn().getTimeInMinutes());
+        });
     }
 
     @Test

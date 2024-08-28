@@ -49,8 +49,10 @@ public class ProfileTests extends TestBase {
                                 .spec(statusCode200Spec)
                                 .extract().as(SearchUsersResponseModel.class)
                 );
-        assertThat(response.getTotalResults()).isGreaterThanOrEqualTo(0);
-        assertThat(response.getUsers()).hasSizeGreaterThanOrEqualTo(0);
+        step("Check response", () -> {
+            assertThat(response.getTotalResults()).isGreaterThanOrEqualTo(0);
+            assertThat(response.getUsers()).hasSizeGreaterThanOrEqualTo(0);
+        });
     }
 
     @Test
@@ -88,19 +90,21 @@ public class ProfileTests extends TestBase {
                                 .spec(statusCode200Spec)
                                 .extract().as(UserProfileResponseModel.class)
                 );
-        assertThat(response.getCanFollow()).isIn(true, false);
-        assertThat(response.getIsFollowedBy()).isIn(true, false);
-        assertThat(response.getIsFollowing()).isIn(true, false);
-        assertThat(response.getIsVerified()).isIn(true, false);
-        assertThat(response.getFollowers().getCursor()).isNull();
-        assertThat(response.getFollowers().getTotalUsers()).isGreaterThanOrEqualTo(0);
-        assertThat(response.getFollowers().getUsers()).hasSizeGreaterThanOrEqualTo(0);
-        assertThat(response.getFollowing().getCursor()).isNull();
-        assertThat(response.getFollowing().getTotalUsers()).isGreaterThanOrEqualTo(0);
-        assertThat(response.getFollowing().getUsers()).hasSizeGreaterThanOrEqualTo(0);
-        assertThat(response.getFriendsInCommon().getCursor()).isNull();
-        assertThat(response.getFriendsInCommon().getTotalUsers()).isGreaterThanOrEqualTo(0);
-        assertThat(response.getFriendsInCommon().getUsers()).hasSizeGreaterThanOrEqualTo(0);
+        step("Check response", () -> {
+            assertThat(response.getCanFollow()).isIn(true, false);
+            assertThat(response.getIsFollowedBy()).isIn(true, false);
+            assertThat(response.getIsFollowing()).isIn(true, false);
+            assertThat(response.getIsVerified()).isIn(true, false);
+            assertThat(response.getFollowers().getCursor()).isNull();
+            assertThat(response.getFollowers().getTotalUsers()).isGreaterThanOrEqualTo(0);
+            assertThat(response.getFollowers().getUsers()).hasSizeGreaterThanOrEqualTo(0);
+            assertThat(response.getFollowing().getCursor()).isNull();
+            assertThat(response.getFollowing().getTotalUsers()).isGreaterThanOrEqualTo(0);
+            assertThat(response.getFollowing().getUsers()).hasSizeGreaterThanOrEqualTo(0);
+            assertThat(response.getFriendsInCommon().getCursor()).isNull();
+            assertThat(response.getFriendsInCommon().getTotalUsers()).isGreaterThanOrEqualTo(0);
+            assertThat(response.getFriendsInCommon().getUsers()).hasSizeGreaterThanOrEqualTo(0);
+        });
     }
 
     @Test
@@ -143,7 +147,9 @@ public class ProfileTests extends TestBase {
         step("Check response is successful", () ->
                 assertThat(response.getSuccessful()).isEqualTo(true)
         );
-        profileSteps.deleteSubscription();
+        step("Delete subscription", () ->
+                profileSteps.deleteSubscription()
+        );
     }
 
     @Test
