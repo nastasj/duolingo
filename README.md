@@ -98,15 +98,15 @@ To run all autotests (need to set Bearer token to get access to Duolingo API):
 gradle clean test -Dtoken=''         
 gradle clean duolingo -Dtoken='' 
 ```
-To run UI autotests remotely in <code>Selenoid</code> by default:
+To run UI autotests on the local machine by default:
 ```bash
 gradle clean ui
 ```
-To run UI autotests on the local machine:
+To run UI autotests remotely in <code>Selenoid</code>:
 ```bash
-gradle clean ui -DisRemote=false
+gradle clean ui -DisRemote=true -DremoteUrl=''
 ```
-To run UI autotests with tag <code>smoke</code> (or <code>regress</code>) remotely in <code>Selenoid</code>:
+To run UI autotests with tag <code>smoke</code> (or <code>regress</code>) on the local machine by default:
 ```bash
 gradle clean smoke
 gradle clean regress
@@ -132,6 +132,7 @@ ${TASK}
 -"DbrowserSize=${BROWSER_SIZE}"
 -"Dtoken=${TOKEN}"
 -"DremoteUrl=https://${AUTH}@${REMOTE_URL}/wd/hub"
+-"DisRemote=true"
 ```
 
 To start the build:
