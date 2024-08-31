@@ -5,6 +5,7 @@ import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.clickable;
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverConditions.currentFrameUrl;
 
@@ -23,12 +24,12 @@ public class DuolingoContactPage {
 
     @Step("Check contact page has correct url")
     public DuolingoContactPage checkContactPageHasCorrectUrl() {
-        String contactPageUrl = "https://www.duolingo.com/contact";
+        String contactPageUrl = baseUrl + "/contact";
         webdriver().shouldHave(currentFrameUrl(contactPageUrl));
         return this;
     }
 
-    @Step("Check help button is clickable")
+    @Step("Check help button is clic kable")
     public DuolingoContactPage checkHelpButtonIsClickable() {
         helpButton.shouldBe(clickable);
         return this;

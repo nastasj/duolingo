@@ -19,9 +19,8 @@ public interface WebDriverConfig extends Config {
     @DefaultValue("https://www.duolingo.com")
     String baseUrl();
 
-    @DefaultValue("true")
+    @DefaultValue("false")
     boolean isRemote();
 
-    @DefaultValue("selenoid.autotests.cloud")
     String remoteUrl();
 }

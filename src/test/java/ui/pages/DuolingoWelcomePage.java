@@ -6,6 +6,7 @@ import io.qameta.allure.Step;
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.clickable;
+import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.webdriver;
 import static com.codeborne.selenide.WebDriverConditions.currentFrameUrl;
@@ -22,7 +23,7 @@ public class DuolingoWelcomePage {
 
     @Step("Check lesson page has correct url")
     public DuolingoWelcomePage checkLessonPageHasCorrectUrl() {
-        String lessonPageUrl = "https://www.duolingo.com/lesson";
+        String lessonPageUrl = baseUrl + "/lesson";
         webdriver().shouldHave(currentFrameUrl(lessonPageUrl));
         return this;
     }

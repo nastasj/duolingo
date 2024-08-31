@@ -6,6 +6,7 @@ import io.qameta.allure.Step;
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.clickable;
+import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverConditions.currentFrameUrl;
 
@@ -24,7 +25,7 @@ public class DuolingoRegisterPage {
 
     @Step("Check register page has correct url")
     public DuolingoRegisterPage checkRegisterPageHasCorrectUrl() {
-        String registerPageUrl = "https://www.duolingo.com/register";
+        String registerPageUrl = baseUrl + "/register";
         webdriver().shouldHave(currentFrameUrl(registerPageUrl));
         return this;
     }
